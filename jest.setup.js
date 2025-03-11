@@ -1,5 +1,5 @@
 // Setup fail-on-console to catch unwanted console outputs
-import { failOnConsole } from 'jest-fail-on-console';
+import failOnConsole from 'jest-fail-on-console';
 
 // Import Jest DOM extensions
 import '@testing-library/jest-dom';
