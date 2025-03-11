@@ -82,7 +82,7 @@ export default async function Index(props: IIndexProps) {
         <li>🔴 Form handling (React Hook Form) and validation (Zod)</li>
         <li>📏 Linting and formatting (ESLint, Prettier)</li>
         <li>🦊 Git hooks and commit linting (Husky, Commitlint)</li>
-        <li>🦺 Testing suite (Vitest, React Testing Library, Playwright)</li>
+        <li>🦺 Testing suite (Jest, React Testing Library, Playwright)</li>
         <li>🎉 Storybook for UI development</li>
         <li>
           🚨 Error monitoring (
