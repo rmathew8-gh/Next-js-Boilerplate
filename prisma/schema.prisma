@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Achievement {
+  id                Int         @id @default(autoincrement()) @map("id")
+  scalisUserId      Int         @map("scalis_user_id")
+  name              String?     @map("name")
+  issuingAuthority  String?     @map("issuing_authority")
+  issueYear         Int?        @map("issue_year")
+  description       Json?       @db.Json @map("description")
+  searchDescription String?     @map("search_description")
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @updatedAt @map("updated_at")
+  ScalisUser        ScalisUser? @relation(fields: [scalisUserId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK_Achievement.scalis_user_id")
+
+  @@map("achievement")
+}
+
+model ScalisUser {
+  id           Int           @id @default(autoincrement()) @map("id")
+  // Add other fields for ScalisUser as needed
+  achievements Achievement[]
+
+  @@map("scalis_user")
+} 

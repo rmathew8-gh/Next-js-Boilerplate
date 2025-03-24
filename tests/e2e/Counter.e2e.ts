@@ -1,4 +1,4 @@
-import assert from 'node:assert';
+import * as assert from 'node:assert';
 import { faker } from '@faker-js/faker';
 import { expect, test } from '@playwright/test';
 
@@ -12,7 +12,7 @@ test.describe('Counter', () => {
       const count = page.getByText('Count:');
       const countText = await count.textContent();
 
-      assert(countText !== null, 'Count should not be null');
+      assert.ok(countText !== null, 'Count should not be null');
 
       await page.getByLabel('Increment by').fill('-1');
       await page.getByRole('button', { name: 'Increment' }).click();
@@ -35,7 +35,7 @@ test.describe('Counter', () => {
       const count = page.getByText('Count:');
       const countText = await count.textContent();
 
-      assert(countText !== null, 'Count should not be null');
+      assert.ok(countText !== null, 'Count should not be null');
 
       const countNumber = Number(countText.split(' ')[1]);
 
